@@ -6,9 +6,11 @@
         <div class="card">
             <div class="card-header">
                 <span class="font-weight-bold">
-                    {{ article.title }}
+                    <a href="{% url 'article_detail' article.pk %}">{{ article.title }} </a>
+                    
                 </span>
                 &middot;
+               
 
                 <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
 
@@ -17,7 +19,11 @@
                 {{ article.body }}
             </div>
             <div class="card-footer text-center text-muted">
-                <a href="#">Edit</a> | <a href="#">Delete</a>
+                <p>
+                    <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+                    <a href="{% url 'article_delete' article.pk %}">Delete</a>
+                </p>
+        
             </div>
         </div>
         <br/>
